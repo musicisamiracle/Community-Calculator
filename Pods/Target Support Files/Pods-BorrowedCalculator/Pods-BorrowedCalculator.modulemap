@@ -1,0 +1,6 @@
+framework module Pods_BorrowedCalculator {
+  umbrella header "Pods-BorrowedCalculator-umbrella.h"
+
+  export *
+  module * { export * }
+}
