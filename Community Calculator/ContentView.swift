@@ -11,14 +11,21 @@ import BorrowedCalculator
 
 struct ContentView: View {
     @EnvironmentObject var env: CalculatorEnviromentObject
+    @ObservedObject var viewModel: OperationsViewModel
     
     var body: some View {
-        CalculatorView()
+        VStack {
+            CalculatorView()
+            List(viewModel.operations, id: \.self) { operation in
+                Text(operation)
+            }
+        }
+        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        EmptyView()
     }
 }

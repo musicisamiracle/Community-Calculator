@@ -23,13 +23,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let opStore = OperationStore(database: Database.database().reference())
-        let delegate = CalculatorEnvironmentDelegate(operationStore: opStore)
+        let viewModel = OperationsViewModel(operationStore: opStore)
         
         let envObject = CalculatorEnviromentObject(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
                                                    resultFormatter: DependencyInjectionManager.createCalculatorResultFormatter(),
                                                    calculatorOperationHandler: DependencyInjectionManager.createCalculatorOperationHandler(),
-                                                   finishedComputationDelegate: delegate)
-        let contentView = ContentView().environmentObject(envObject)
+                                                   finishedComputationDelegate: viewModel)
+        let contentView = ContentView(viewModel: viewModel).environmentObject(envObject)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

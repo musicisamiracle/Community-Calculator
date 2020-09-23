@@ -78,8 +78,8 @@
 		AB15338A251ABADF0023984D /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB153380251ABADF0023984D /* StringExtensionTests.swift */; };
 		AB15338C251AC18B0023984D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB15338B251AC18B0023984D /* GoogleService-Info.plist */; };
 		AB15338E251AC6D30023984D /* FinishedOperationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB15338D251AC6D30023984D /* FinishedOperationResult.swift */; };
-		AB153390251ACA0D0023984D /* CalculatorEnvironmentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB15338F251ACA0D0023984D /* CalculatorEnvironmentDelegate.swift */; };
 		AB153392251ACE5C0023984D /* OperationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB153391251ACE5C0023984D /* OperationStore.swift */; };
+		AB153394251AD3400023984D /* OperationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB153393251AD3400023984D /* OperationsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,8 +209,8 @@
 		AB153380251ABADF0023984D /* StringExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		AB15338B251AC18B0023984D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB15338D251AC6D30023984D /* FinishedOperationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedOperationResult.swift; sourceTree = "<group>"; };
-		AB15338F251ACA0D0023984D /* CalculatorEnvironmentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorEnvironmentDelegate.swift; sourceTree = "<group>"; };
 		AB153391251ACE5C0023984D /* OperationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationStore.swift; sourceTree = "<group>"; };
+		AB153393251AD3400023984D /* OperationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsViewModel.swift; sourceTree = "<group>"; };
 		C94BFDFB0A73F8A560AB3D5D /* Pods-Community Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Community Calculator.release.xcconfig"; path = "Target Support Files/Pods-Community Calculator/Pods-Community Calculator.release.xcconfig"; sourceTree = "<group>"; };
 		CCD620E80BC3B139AC098F1B /* Pods-BorrowedCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BorrowedCalculator.debug.xcconfig"; path = "Target Support Files/Pods-BorrowedCalculator/Pods-BorrowedCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 		EB84BD41954E743CFBBCBE0F /* Pods_BorrowedCalculator_BorrowedCalculatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BorrowedCalculator_BorrowedCalculatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,8 +300,8 @@
 				AB1532D2251AB8930023984D /* LaunchScreen.storyboard */,
 				AB1532D5251AB8930023984D /* Info.plist */,
 				AB1532CF251AB8930023984D /* Preview Content */,
-				AB15338F251ACA0D0023984D /* CalculatorEnvironmentDelegate.swift */,
 				AB153391251ACE5C0023984D /* OperationStore.swift */,
+				AB153393251AD3400023984D /* OperationsViewModel.swift */,
 			);
 			path = "Community Calculator";
 			sourceTree = "<group>";
@@ -865,10 +865,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB153390251ACA0D0023984D /* CalculatorEnvironmentDelegate.swift in Sources */,
 				AB1532C8251AB88F0023984D /* AppDelegate.swift in Sources */,
 				AB153392251ACE5C0023984D /* OperationStore.swift in Sources */,
 				AB1532CA251AB88F0023984D /* SceneDelegate.swift in Sources */,
+				AB153394251AD3400023984D /* OperationsViewModel.swift in Sources */,
 				AB1532CC251AB88F0023984D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

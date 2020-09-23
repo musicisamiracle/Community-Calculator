@@ -1,5 +1,5 @@
 //
-//  CalculatorEnvironmentDelegate.swift
+//  OperationsViewModel.swift
 //  Community Calculator
 //
 //  Created by Dane Thomas on 9/22/20.
@@ -9,14 +9,17 @@
 import Foundation
 import BorrowedCalculator
 
-class CalculatorEnvironmentDelegate: FinishedComputationDelegate {
+class OperationsViewModel: ObservableObject {
+    @Published var operations: [String] = []
     
     private let operationStore: OperationStore
     
     init(operationStore: OperationStore) {
         self.operationStore = operationStore
     }
-    
+}
+
+extension OperationsViewModel: FinishedComputationDelegate {
     func hasNewFinishedOperation(_ result: FinishedOperationResult) {
         print(result)
     }
