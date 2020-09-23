@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol FinishedComputationDelegate: class {
-    func computationWasCompleted(_ computation: String)
+    func hasNewFinishedOperation(_ result: FinishedOperationResult)
 }

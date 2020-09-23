@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import BorrowedCalculator
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,7 +21,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        
+        /**
+         public static func createCalculatorEnvironmentObject() -> CalculatorEnviromentObject {
+             return CalculatorEnviromentObject(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
+                                               resultFormatter: self.createCalculatorResultFormatter(),
+                                               calculatorOperationHandler: self.createCalculatorOperationHandler())
+         }
+         */
+        let envObject = CalculatorEnviromentObject(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
+                                                   resultFormatter: DependencyInjectionManager.createCalculatorResultFormatter(),
+                                                   calculatorOperationHandler: DependencyInjectionManager.createCalculatorOperationHandler(),
+                                                   finishedComputationDelegate: CalculatorEnvironmentDelegate())
+        let contentView = ContentView().environmentObject(envObject)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

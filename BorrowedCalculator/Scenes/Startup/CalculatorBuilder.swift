@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct CalculatorBuilder {
-    static func buildCalculatorOptions() -> [[CalculatorOptionProtocol]] {
+public struct CalculatorBuilder {
+    public static func buildCalculatorOptions() -> [[CalculatorOptionProtocol]] {
         let firstRowOptions = [
             CalculatorOption(representable: .clear,
                              foregroundColor: Color(.black),

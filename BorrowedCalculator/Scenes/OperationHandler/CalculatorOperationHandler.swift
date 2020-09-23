@@ -71,22 +71,20 @@ class CalculatorOperationHandler: CalculatorOperationHandlerProtocol {
         case .decimal:
             break
         case .equals:
-            let (newValue, computationStringRep) = performPendingBinaryOperation(with: resultValueUpdated)
-            delegate?.updateComputationRepresentation(computationStringRep)
-            updateDisplay(with: newValue)
+            if let finishedOperation = performPendingBinaryOperation(with: resultValueUpdated) {
+                delegate?.hasNewFinishedOperation(finishedOperation)
+                updateDisplay(with: finishedOperation.result)
+            }
         }
     }
     
-    private func performPendingBinaryOperation(with resultValue: Double) -> (result: Double, stringRep: String) {
-        guard let pendingBinaryOperation = pendingBinaryOperation else { return (0, "") }
+    private func performPendingBinaryOperation(with resultValue: Double) -> FinishedOperationResult? {
+        guard let pendingBinaryOperation = pendingBinaryOperation else { return nil }
         if !pendingBinaryOperation.hasOperand {
             pendingBinaryOperation.setOperand(resultValue)
         }
         
-        let opString = pendingBinaryOperation.toString()
-        let result = pendingBinaryOperation.perform()
-        let resultString = "\(opString) = \(result)"
-        return (result: result, stringRep: resultString)
+        return pendingBinaryOperation.performOperation()
     }
     
     private func updateDisplay(with resultValue: Double) {

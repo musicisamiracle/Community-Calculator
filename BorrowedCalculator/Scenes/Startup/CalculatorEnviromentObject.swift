@@ -10,17 +10,17 @@ import Foundation
 import Combine
 
 public class CalculatorEnviromentObject: ObservableObject, CalculatorEnvironmentObjectProtocol {
-    
+
     @Published var formattedCalculatorDisplay: String = "0"
     
     let calculatorButtons: [[CalculatorOptionProtocol]]
     private let resultFormatter: CalculatorResultFormatterProtocol
     private var calculatorOperationHandler: CalculatorOperationHandlerProtocol
-    private weak var finishedComputationDelegate: FinishedComputationDelegate?
+    private var finishedComputationDelegate: FinishedComputationDelegate?
     
     // MARK: - Initializers
     
-    init(calculatorButtons: [[CalculatorOptionProtocol]],
+    public init(calculatorButtons: [[CalculatorOptionProtocol]],
          resultFormatter: CalculatorResultFormatterProtocol,
          calculatorOperationHandler: CalculatorOperationHandlerProtocol,
          finishedComputationDelegate: FinishedComputationDelegate? = nil) {
@@ -49,8 +49,7 @@ public class CalculatorEnviromentObject: ObservableObject, CalculatorEnvironment
         }
     }
     
-    public func updateComputationRepresentation(_ value: String) {
-        self.finishedComputationDelegate?.computationWasCompleted(value)
-        print(value)
+    public func hasNewFinishedOperation(_ result: FinishedOperationResult) {
+        self.finishedComputationDelegate?.hasNewFinishedOperation(result)
     }
 }

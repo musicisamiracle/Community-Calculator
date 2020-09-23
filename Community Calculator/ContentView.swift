@@ -10,8 +10,10 @@ import SwiftUI
 import BorrowedCalculator
 
 struct ContentView: View {
+    @EnvironmentObject var env: CalculatorEnviromentObject
+    
     var body: some View {
-        CalculatorView().environmentObject(DependencyInjectionManager.createCalculatorEnvironmentObject())
+        CalculatorView()
     }
 }
 

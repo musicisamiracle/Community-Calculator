@@ -10,5 +10,5 @@ import Foundation
 
 public protocol CalculatorEnvironmentObjectProtocol: class {
     func updateValue(_ value: String, isEnteringNumbers: Bool)
-    func updateComputationRepresentation(_ value: String)
+    func hasNewFinishedOperation(_ result: FinishedOperationResult)
 }

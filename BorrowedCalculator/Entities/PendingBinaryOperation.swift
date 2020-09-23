@@ -43,6 +43,14 @@ class PendingBinaryOperation {
         return value
     }
     
+    func performOperation() -> FinishedOperationResult? {
+        guard let operand = operand else { return nil }
+        let result = self.perform()
+        let finishedOperation = FinishedOperationResult(firstOperand: operand, secondOperand: self.accumulatedValue,
+                                                        operation: self.operationString, result: result)
+        return finishedOperation
+    }
+    
     func toString() -> String {
         guard let operand = operand else { return "" }
         return "\(self.accumulatedValue) \(self.operationString) \(operand)"
