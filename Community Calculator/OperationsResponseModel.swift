@@ -20,7 +20,7 @@ struct OperationsResponseModel {
     }
     
     let id: String
-    let timestamp: String
+    let timestamp: Double
     let firstOperand: String
     let secondOperand: String
     let operation: String
