@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 import BorrowedCalculator
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,18 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
+        let opStore = OperationStore(database: Database.database().reference())
+        let delegate = CalculatorEnvironmentDelegate(operationStore: opStore)
         
-        /**
-         public static func createCalculatorEnvironmentObject() -> CalculatorEnviromentObject {
-             return CalculatorEnviromentObject(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
-                                               resultFormatter: self.createCalculatorResultFormatter(),
-                                               calculatorOperationHandler: self.createCalculatorOperationHandler())
-         }
-         */
         let envObject = CalculatorEnviromentObject(calculatorButtons: CalculatorBuilder.buildCalculatorOptions(),
                                                    resultFormatter: DependencyInjectionManager.createCalculatorResultFormatter(),
                                                    calculatorOperationHandler: DependencyInjectionManager.createCalculatorOperationHandler(),
-                                                   finishedComputationDelegate: CalculatorEnvironmentDelegate())
+                                                   finishedComputationDelegate: delegate)
         let contentView = ContentView().environmentObject(envObject)
 
         // Use a UIHostingController as window root view controller.

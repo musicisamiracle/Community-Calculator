@@ -10,6 +10,13 @@ import Foundation
 import BorrowedCalculator
 
 class CalculatorEnvironmentDelegate: FinishedComputationDelegate {
+    
+    private let operationStore: OperationStore
+    
+    init(operationStore: OperationStore) {
+        self.operationStore = operationStore
+    }
+    
     func hasNewFinishedOperation(_ result: FinishedOperationResult) {
         print(result)
     }
